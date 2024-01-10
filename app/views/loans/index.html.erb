@@ -1,0 +1,28 @@
+<h1>  Loans listing page </h1>
+
+<table style="border-collapse: collapse; border: 1px solid black;">
+   <thread>
+        <tr>
+          <th style="border: 1px solid black;"> Name </th>
+          <th style="border: 1px solid black;"> Purpose</th>
+          <th style="border: 1px solid black;"> Amount</th>
+          <th style="border: 1px solid black;"> SSN</th>
+          <th style="border: 1px solid black; colspan="3""> Action</th>
+        </tr>
+   </thread>
+
+   <tbody> 
+     <% @loans.each do |loan| %>
+        <tr>
+          <td style="border: 1px solid black;"><%= loan.name %> </td>
+          <td style="border: 1px solid black;"> <%= loan.purpose %></td>
+          <td style="border: 1px solid black;"> <%= loan.amount %></td>
+          <td style="border: 1px solid black;"> <%= loan.ssn %></td>  
+          <td style="border: 1px solid black;"><%= link_to 'Show', loan_path(loan) %>
+          <%= button_to 'Delete', loan_path(loan), method: :delete, data: { confirm: 'Are you sure you want to delete this Loan?' } %>
+          <%= link_to 'Edit', edit_loan_path(loan)%>
+          </td>  
+        </tr>
+        <% end %>
+   </tbody>
+</table>

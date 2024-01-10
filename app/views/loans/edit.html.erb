@@ -1,0 +1,29 @@
+<h1> Edit loan application </h1>
+
+  <%= form_with(model: @loan, local: true) do |form| %>
+
+    <div class="field">
+        <%= form.label :name %><br>
+        <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+        <%= form.label :purpose %><br>
+        <%= form.text_field :purpose %>
+    </div>
+
+    <div class="field">
+        <%= form.label :amount %><br>
+        <%= form.number_field :amount %>
+    </div>
+
+    <div class="field">
+        <%= form.label :ssn %><br>
+        <%= form.text_field :ssn %>
+    </div>
+
+    <div class="actions"> <br>
+        <%= form.submit "Submit Loan Application" %>
+    </div>
+
+    <% end %>
