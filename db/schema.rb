@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_09_131209) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_11_133345) do
   create_table "loan_data", force: :cascade do |t|
     t.string "name"
     t.string "purpose"
@@ -27,6 +27,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_09_131209) do
     t.decimal "ssn"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email_address"
+    t.decimal "income"
+    t.string "status"
   end
 
 end

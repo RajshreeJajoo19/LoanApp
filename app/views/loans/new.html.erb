@@ -1,29 +1,38 @@
-<h1> Create a new Loan Application </h1>
+<h1>Create a new Loan Application</h1>
+
+<% if @loan.errors.any? %>
+  <ul>
+    <% @loan.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <%= form_with(model: @loan, url: loans_path) do |form| %>
 
-    <div class="field">
-        <%= form.label :name %><br>
-        <%= form.text_field :name %>
-    </div>
-
-    <div class="field">
-        <%= form.label :purpose %><br>
-        <%= form.text_field :purpose %>
-    </div>
-
-    <div class="field">
-        <%= form.label :amount %><br>
-        <%= form.number_field :amount %>
-    </div>
-
-    <div class="field">
-        <%= form.label :ssn %><br>
-        <%= form.text_field :ssn %>
-    </div>
-
-    <div class="actions"> <br>
-        <%= form.submit "Submit Loan Application" %>
-    </div>
-
-<% end %>
+        <div class="form-group mb-3">
+          <%= form.label :name %><br>
+          <%= form.text_field :name, class:'form-control', style: 'width: 300px; height: 20px;' %>
+        </div>
+      
+        <div class="form-group mb-3"><br>
+          <%= form.label :ssn %><br>
+          <%= form.text_field :ssn, class: 'form-control', style: 'width: 300px; height: 20px;' %>
+        </div>
+      
+        <div class="form-group mb-3"><br>
+          <%= form.label :purpose %><br>
+          <%= form.text_field :purpose, class:'form-control', style: 'width: 300px; height: 20px;' %>
+        </div>
+      
+        <div class="form-group mb-3"><br>
+          <%= form.label :amount %><br>
+          <%= form.number_field :amount, class: 'form-control', style: 'width: 300px; height: 20px;' %>
+        </div>
+      
+        <div class="form-group mb-3"><br>
+          <%= form.submit "Submit Loan Application", class: 'btn btn-primary' %>
+        </div>
+      
+      <% end %>
+      

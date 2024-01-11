@@ -28,7 +28,8 @@ class LoansController < ApplicationController
             flash[:notice] = "Loan application was created successfully"
             redirect_to loans_path
         else
-            render 'new'
+           redirect_to new_loan_path, alert: @loan.errors.full_messages.join(', ')
+            #render 'new'
         end
     end
 
@@ -39,7 +40,7 @@ class LoansController < ApplicationController
           flash[:notice] = "Loan was updated successfully"
           redirect_to loans_path
         else
-          redirect_to loans_path, alert: @loan.errors.full_messages.join(', ')
+          redirect_to new_loan_path, alert: @loan.errors.full_messages.join(', ')
           # render 'edit' # Uncomment this line if you want to render the edit view on failure
         end
       end
