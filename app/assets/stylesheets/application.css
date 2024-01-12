@@ -13,6 +13,6 @@
  *= require_tree .
  *= require_self
  */
-
- @import 'bootstrap/dist/css/bootstrap';
+/* Add this line at the top of the file */
+ @import 'bootstrap';
 

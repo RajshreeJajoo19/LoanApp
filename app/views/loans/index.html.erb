@@ -1,13 +1,109 @@
-<html>
-<head>
-  <title>Your Rails App</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 20px;
+  }
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-</head>
-<body>
-  <h1>Hello, world!</h1>
-  <button class="btn btn-secondary">Test Bootstrap Button</button>
-</body>
-</html>
+  h1 {
+    color: #333;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th, td {
+    border: 1px solid #333;
+    padding: 10px;
+    #text-align: left;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  a.button {
+    text-decoration: none !important;
+    padding: 5px 10px;
+    background-color: #dc3545 !important;
+    color: #fff;
+    border: 1px solid #dc3545;
+    font-size: 15px;
+    cursor: pointer;
+    display: inline-block; 
+    margin-bottom: 5px; 
+    width: 80px; 
+    text-align:center;
+    border-radius:10px;
+  }
+
+  .deletebutton{
+    text-decoration: none !important; 
+    padding: 5px 10px;
+    background-color: #dc3545 !important;
+    color: #fff;
+    border: 1px solid #dc3545;
+    font-size: 15px;
+    cursor: pointer;
+    display: inline-block; 
+    margin-bottom: 5px; 
+    width: 100px; 
+    border-radius:10px;
+  }
+
+
+  a:hover {
+    text-decoration: none;
+  }
+
+
+  button:hover, .edit-link:hover, .show-link:hover {
+    background-color: #c82333!important;
+  }
+
+</style>
+
+<h4> <center> Loans listing page </center> </h4>
+
+<table style="border-collapse: collapse; border: 1px solid black;">
+  <thread>
+    <tr>
+      <th style="border: 1px solid black;">Name</th>
+      <th style="border: 1px solid black;">Purpose</th>
+      <th style="border: 1px solid black;">Amount</th>
+      <th style="border: 1px solid black;">SSN</th>
+      <th style="border: 1px solid black;">Email</th>
+      <th style="border: 1px solid black;">Income</th>
+      <th style="border: 1px solid black;">Status</th>
+      <th style="border: 1px solid black; colspan='3'">Action</th>
+    </tr>
+  </thread>
+
+  <tbody>
+    <% @loans.each do |loan| %>
+      <tr>
+        <td style="border: 1px solid black;"><%= loan.name %></td>
+        <td style="border: 1px solid black;"><%= loan.purpose %></td>
+        <td style="border: 1px solid black;"><%= loan.amount %></td>
+        <td style="border: 1px solid black;"><%= loan.ssn %></td>
+        <td style="border: 1px solid black;"><%= loan.email_address %></td>
+        <td style="border: 1px solid black;"><%= loan.income %></td>
+        <td style="border: 1px solid black;"><%= loan.status %></td>
+
+      <td style="border: 1px solid black;">
+        <%= link_to 'Show', loan_path(loan), class: 'button' %><br>
+        <%= link_to 'Edit', edit_loan_path(loan), class: 'button' %><br>
+        <%= button_to 'Delete', loan_path(loan), method: :delete,class: 'deletebutton' %>
+      </td>
+      
+      </tr>
+    <% end %>
+  </tbody>
+</table>

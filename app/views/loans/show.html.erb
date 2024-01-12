@@ -1,6 +1,53 @@
-<h1> Show loan application  in details</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
 
-<p><strong> Name: </strong> <%= @loan.name %></p> 
-<p><strong> Purpose: </strong> <%= @loan.purpose %></p>
-<p><strong> Ampunt: </strong> <%= @loan.amount %></p>
-<p><strong> SSN: </strong> <%= @loan.ssn %></p>
+    .loan-application {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    p {
+      margin: 10px 0;
+      color: #555;
+    }
+
+    strong {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="loan-application">
+    <h1>Loan Application Details</h1>
+    <p><strong>Name:</strong> <%= @loan.name %></p>
+    <p><strong>Purpose:</strong> <%= @loan.purpose %></p>
+    <p><strong>Amount:</strong> <%= @loan.amount %></p>
+    <p><strong>SSN:</strong> <%= @loan.ssn %></p>
+    <p><strong>Email:</strong> <%= @loan.email_address %></p>
+    <p><strong>Income:</strong> <%= @loan.income %></p>
+    <p><strong>Status:</strong> <%= @loan.status %></p>
+  </div>
+</body>
+</html>

@@ -1,29 +1,105 @@
-<h1> Edit loan application </h1>
 
-  <%= form_with(model: @loan, local: true) do |form| %>
 
-    <div class="field">
-        <%= form.label :name %><br>
-        <%= form.text_field :name %>
-    </div>
+                    <h2> <center> Edit  Loan Application </center> </h2><br>
 
-    <div class="field">
-        <%= form.label :purpose %><br>
-        <%= form.text_field :purpose %>
-    </div>
+<style>
 
-    <div class="field">
-        <%= form.label :amount %><br>
-        <%= form.number_field :amount %>
-    </div>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 20px;
+  }
 
-    <div class="field">
-        <%= form.label :ssn %><br>
-        <%= form.text_field :ssn %>
-    </div>
+  h1 {
+    color: #333;
+  }
 
-    <div class="actions"> <br>
-        <%= form.submit "Submit Loan Application" %>
-    </div>
+.loan-form {
+  max-width: 400px;
+  margin: 0 auto;
+}
 
+.field {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+</style>
+
+<% if @loan.errors.any? %>
+  <ul>
+    <% @loan.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
     <% end %>
+  </ul>
+<% end %>
+
+<%= form_with(model: @loan, local: true) do |form| %>
+
+    <div class="field">
+      <%= form.label :name, class: 'form-label' %><br>
+      <%= form.text_field :name, class: 'form-input' %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :purpose, class: 'form-label' %><br>
+      <%= form.text_field :purpose, class: 'form-input' %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :amount, class: 'form-label' %><br>
+      <%= form.number_field :amount, class: 'form-input' %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :ssn, class: 'form-label' %><br>
+      <%= form.text_field :ssn, class: 'form-input' %>
+    </div>
+
+
+    <div class="field">
+    <%= form.label :Email, class: 'form-label' %><br>
+    <%= form.text_field :email_address, class: 'form-input' %>
+    </div>
+  
+    <div class="field">
+    <%= form.label :Income, class: 'form-label' %><br>
+    <%= form.text_field :income, class: 'form-input' %>
+    </div>
+
+
+    <div class="field">
+    <%= form.label :status, class: 'form-label' %><br>
+    <%= form.text_field :status, class: 'form-input' %>
+    </div>
+
+
+    <div class="actions">
+      <%= form.submit "Submit Loan Application", class: 'submit-button' %>
+    </div>
+  
+  <% end %>

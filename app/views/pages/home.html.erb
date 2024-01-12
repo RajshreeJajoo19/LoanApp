@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+
+    h3 {
+      text-align: center;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      margin: 0 10px;
+      padding: 10px 20px;
+      background-color: black;
+      border-radius: 5px;
+      display: inline-block;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      margin: 20px;
+      text-align: center; /* Center-align the links */
+    }
+
+    .Loanlinks{
+       margin-top:15%
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h3>Welcome to Loan Application</h3><br><br>
+
+         <div class="Loanlinks">
+
+            <%= link_to 'Loan listing', loans_path, style: "background-color: black;" %> 
+            <%= link_to 'Add Applications', new_loan_path, style: "background-color: black;" %>
+        </div>
+  </div>
+
+</body>
+</html>
