@@ -48,6 +48,13 @@ body {
 .submit-button:hover {
   background-color: #45a049;
 }
+
+.editformfields{
+
+   border:1px solid black;
+
+}
+
 </style>
 
 <% if @loan.errors.any? %>
@@ -60,46 +67,49 @@ body {
 
 <%= form_with(model: @loan, local: true) do |form| %>
 
-    <div class="field">
-      <%= form.label :name, class: 'form-label' %><br>
-      <%= form.text_field :name, class: 'form-input' %>
-    </div>
+  <div class= "editformfields">
+
+        <div class="field">
+          <%= form.label :name, class: 'form-label' %><br>
+          <%= form.text_field :name, class: 'form-input' %>
+        </div>
+      
+        <div class="field">
+          <%= form.label :purpose, class: 'form-label' %><br>
+          <%= form.text_field :purpose, class: 'form-input' %>
+        </div>
+      
+        <div class="field">
+          <%= form.label :amount, class: 'form-label' %><br>
+          <%= form.number_field :amount, class: 'form-input' %>
+        </div>
+      
+        <div class="field">
+          <%= form.label :ssn, class: 'form-label' %><br>
+          <%= form.text_field :ssn, class: 'form-input' %>
+        </div>
+
+
+        <div class="field">
+        <%= form.label :Email, class: 'form-label' %><br>
+        <%= form.text_field :email_address, class: 'form-input' %>
+        </div>
+      
+        <div class="field">
+        <%= form.label :Income, class: 'form-label' %><br>
+        <%= form.text_field :income, class: 'form-input' %>
+        </div>
+
+
+        <div class="field">
+        <%= form.label :status, class: 'form-label' %><br>
+        <%= form.text_field :status, class: 'form-input' %>
+        </div>
+
+
+        <div class="actions">
+          <%= form.submit "Submit Loan Application", class: 'submit-button' %>
+        </div>
   
-    <div class="field">
-      <%= form.label :purpose, class: 'form-label' %><br>
-      <%= form.text_field :purpose, class: 'form-input' %>
-    </div>
-  
-    <div class="field">
-      <%= form.label :amount, class: 'form-label' %><br>
-      <%= form.number_field :amount, class: 'form-input' %>
-    </div>
-  
-    <div class="field">
-      <%= form.label :ssn, class: 'form-label' %><br>
-      <%= form.text_field :ssn, class: 'form-input' %>
-    </div>
-
-
-    <div class="field">
-    <%= form.label :Email, class: 'form-label' %><br>
-    <%= form.text_field :email_address, class: 'form-input' %>
-    </div>
-  
-    <div class="field">
-    <%= form.label :Income, class: 'form-label' %><br>
-    <%= form.text_field :income, class: 'form-input' %>
-    </div>
-
-
-    <div class="field">
-    <%= form.label :status, class: 'form-label' %><br>
-    <%= form.text_field :status, class: 'form-input' %>
-    </div>
-
-
-    <div class="actions">
-      <%= form.submit "Submit Loan Application", class: 'submit-button' %>
-    </div>
-  
+  </div>  
   <% end %>
