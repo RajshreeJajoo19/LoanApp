@@ -60,11 +60,12 @@ body {
   </ul>
 <% end %>
 
-<%= form_with(model: @loan, url: loans_path, class: 'loan-form') do |form| %>
+<%= form_with(model: @loan, url: loans_path, class: 'loan-form', data: { remote: true }, method: 'post') do |form| %>
 
     <div class="field">
       <%= form.label :name, class: 'form-label' %><br>
-      <%= form.text_field :name, class: 'form-input' %>
+      <%= form.text_field :name, class: "form-control", id: "name", placeholder: "jack" %>
+
     </div>
   
     <div class="field">
@@ -82,32 +83,42 @@ body {
   
     <div class="field">
       <%= form.label :amount, class: 'form-label' %><br>
-      <%= form.number_field :amount, class: 'form-input' %>
+      <%= form.number_field :amount, class: "form-control", id: "amount", placeholder: "120000" %>
+
     </div>
   
     <div class="field">
       <%= form.label :ssn, class: 'form-label' %><br>
-      <%= form.text_field :ssn, class: 'form-input' %>
+      <%= form.text_field :ssn,  class: "form-control", id: "ssn", placeholder: "xxx-xxx-xxx"%>
     </div>
 
     <div class="field">
-    <%= form.label :Email, class: 'form-label' %><br>
-    <%= form.text_field :email_address, class: 'form-input' %>
-    </div>
+      <%= form.label :Email, class: 'form-label' %><br>
+      <%= form.text_field :email_address, type: "email", class: "form-control", id: "email_address", placeholder: "name@example.com" %>
+    </div
   
     <div class="field">
     <%= form.label :Income, class: 'form-label' %><br>
-    <%= form.text_field :income, class: 'form-input' %>
+    <%= form.text_field :income,  class: "form-control", id: "income", placeholder: "120,0000" %>
     </div>
 
     <div class="field">
-    <%= form.label :status, class: 'form-label' %><br>
-    <%= form.text_field :status, class: 'form-input' %>
-    </div>
-
+    <%= form.label :status, class: 'form-label' %>
+  
+    <%= form.radio_button :status, 'active', class: 'form-radio' %>
+    <%= form.label :status_active, class: 'radio-label' do %>
+      Married 
+    <% end %>
+  
+    <%= form.radio_button :status, 'inactive', class: 'form-radio' %>
+    <%= form.label :status_inactive, class: 'radio-label' do %>
+      Unmarried
+    <% end %>
+  </div>
+  
 
     <div class="actions">
-      <%= form.submit "Submit Loan Application", class: 'submit-button' %>
+      <%= form.submit "Submit Loan Application", class: 'btn-dang' %>
     </div>
   
   <% end %>

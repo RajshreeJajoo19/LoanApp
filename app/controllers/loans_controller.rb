@@ -4,7 +4,11 @@ class LoansController < ApplicationController
     def show
         #debugger
         @loan = Loan.find(params[:id])
-    end
+        respond_to do |format|
+            format.html { render action: "show" }
+            format.js { render json: {} }
+          end
+        end
 
     def index
         @loans = Loan.all

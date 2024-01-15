@@ -6,11 +6,5 @@ class PagesController < ApplicationController
     def about
     end
 
-    #ajax functionality
-
-    def ajax_request
-        render json: { message: 'Hello from the server!' }
-    end
-
 
 end
