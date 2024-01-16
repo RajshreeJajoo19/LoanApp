@@ -1,115 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Loan Application</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 20px;
+    }
 
+    .container {
+      max-width: 800px; /* Adjust the max-width based on your design */
+    }
 
-                    <h2> <center> Edit  Loan Application </center> </h2><br>
+    h1 {
+      color: #333;
+    }
 
-<style>
+    .loan-form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 20px;
-  }
+    .field {
+      margin-bottom: 20px;
+    }
 
-  h1 {
-    color: #333;
-  }
+    .form-label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
 
-.loan-form {
-  max-width: 400px;
-  margin: 0 auto;
-}
+    .form-input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
 
-.field {
-  margin-bottom: 20px;
-}
+    .submit-button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-.form-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
+    .submit-button:hover {
+      background-color: #45a049;
+    }
 
-.form-input {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-}
+    .editformfields {
+      #border: 1px solid black;
+      padding: 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
 
-.submit-button {
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 15px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
+  <div class="container">
 
-.submit-button:hover {
-  background-color: #45a049;
-}
+    <h2 class="text-center">Edit Loan Application</h2><br>
 
-.editformfields{
-
-   border:1px solid black;
-
-}
-
-</style>
-
-<% if @loan.errors.any? %>
-  <ul>
-    <% @loan.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+    <% if @loan.errors.any? %>
+      <div class="alert alert-danger">
+        <ul>
+          <% @loan.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
     <% end %>
-  </ul>
-<% end %>
 
-<%= form_with(model: @loan, local: true) do |form| %>
+    <%= form_with(model: @loan, local: true, class: 'loan-form') do |form| %>
 
-  <div class= "editformfields">
+      <div class="editformfields">
 
         <div class="field">
           <%= form.label :name, class: 'form-label' %><br>
-          <%= form.text_field :name, class: 'form-input' %>
+          <%= form.text_field :name, class: 'form-input form-control' %>
         </div>
       
         <div class="field">
-          <%= form.label :purpose, class: 'form-label' %><br>
-          <%= form.text_field :purpose, class: 'form-input' %>
-        </div>
+        <%= form.label :purpose, class: 'form-label' %>
+        <%= form.select :purpose, options_for_select([
+          ['Select', nil],  
+          ['Medical Expenses', 'Medical Expenses'],
+          ['Gold', 'Gold'],
+          ['Education', 'Education'],
+          ['Home', 'Home'],
+          ['Vehicle', 'Vehicle']
+        ], selected: @loan.purpose), {}, class: 'form-input' %>
+      </div>
+      
       
         <div class="field">
           <%= form.label :amount, class: 'form-label' %><br>
-          <%= form.number_field :amount, class: 'form-input' %>
+          <%= form.number_field :amount, class: 'form-input form-control' %>
         </div>
       
         <div class="field">
           <%= form.label :ssn, class: 'form-label' %><br>
-          <%= form.text_field :ssn, class: 'form-input' %>
+          <%= form.text_field :ssn, class: 'form-input form-control' %>
         </div>
 
-
         <div class="field">
-        <%= form.label :Email, class: 'form-label' %><br>
-        <%= form.text_field :email_address, class: 'form-input' %>
+          <%= form.label :Email, class: 'form-label' %><br>
+          <%= form.text_field :email_address, class: 'form-input form-control' %>
         </div>
       
         <div class="field">
-        <%= form.label :Income, class: 'form-label' %><br>
-        <%= form.text_field :income, class: 'form-input' %>
+          <%= form.label :Income, class: 'form-label' %><br>
+          <%= form.text_field :income, class: 'form-input form-control' %>
         </div>
 
 
         <div class="field">
-        <%= form.label :status, class: 'form-label' %><br>
-        <%= form.text_field :status, class: 'form-input' %>
-        </div>
-
-
+        <%= form.label :relationship_status, class: 'form-label' %>
+      
+        <%= form.radio_button :status, 'active', checked: (@loan.status == 'active'), class: 'form-radio' %>
+        <%= form.label :status_active, class: 'radio-label' do %>
+          Married
+        <% end %>
+      
+        <%= form.radio_button :status, 'inactive', checked: (@loan.status == 'inactive'), class: 'form-radio' %>
+        <%= form.label :status_inactive, class: 'radio-label' do %>
+          Unmarried
+        <% end %>
+      </div>
+      
+      
         <div class="actions">
-          <%= form.submit "Submit Loan Application", class: 'submit-button' %>
+          <%= form.submit "Submit Loan Application", class: 'btn-primary' %>
         </div>
   
-  </div>  
-  <% end %>
+      </div>
+
+    <% end %>
+
+  </div>
+
+  <!-- Bootstrap JS and Popper.js (if needed) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -26,16 +26,39 @@ class LoansController < ApplicationController
 
 
     # Create action to save data in the Loan model
-    def create
-        @loan = Loan.new(loan_params)
-        if @loan.save
-            flash[:notice] = "Loan application was created successfully"
-            redirect_to loans_path
-        else
-           redirect_to new_loan_path, alert: @loan.errors.full_messages.join(', ')
+
+
+    #def create
+        #@loan = Loan.new(loan_params)
+        #if @loan.save
+            #flash[:notice] = "Loan application was created successfully"
+            #redirect_to loans_path
+        #else
+           #redirect_to new_loan_path, alert: @loan.errors.full_messages.join(', ')
             #render 'new'
+        #end
+    #end
+
+    def create
+      @loan = Loan.new(loan_params)
+      respond_to do |format|
+        if @loan.save
+          format.html { redirect_to loans_path, notice: "Loan application was created successfully" }
+          format.js   { puts "AJAX request succeeded!" }
+          format.json { render json: {} }
+        else
+          puts "*" * 100
+          puts @loan.errors.full_messages
+          puts "*" * 100
+          #format.html { render action: "new"} 
+          #format.json { render json: { errors: @loan.errors.full_messages }, status: :unprocessable_entity }
+          format.js   { render layout: false, content_type: 'text/javascript' }
         end
+      end
     end
+    
+
+
 
     def update
         @loan = Loan.find(params[:id])
@@ -49,20 +72,16 @@ class LoansController < ApplicationController
         end
       end
       
-   
-
     def destroy 
         @loan = Loan.find(params[:id])
         @loan.destroy
         redirect_to loan_path, notice: 'Loan was successfully deleted.'
     end
 
-
-      private
-      
-      def loan_params
-        params.require(:loan).permit(:name, :purpose, :amount, :ssn, :email_address, :income, :status)
-      end
-
+    private
+    
+    def loan_params
+      params.require(:loan).permit(:name, :purpose, :amount, :ssn, :email_address, :income, :status)
+    end
 
 end

@@ -43,24 +43,16 @@
   <div class="container">
     <h3>Welcome to Loan Application</h3><br><br>
 
-         <div class="Loanlinks">
-
-            <%= link_to 'Loan listing', loans_path, style: "background-color: black;" %> 
-            <%= link_to 'Add Applications', new_loan_path, style: "background-color: black;" %>
-
-
-          #<% if user_signed_in? %>
-            #Welcome <%= current_user.email %>
-            #<%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-          #<% else %>
-            #<%= link_to 'Sign up', new_user_registration_path %>
-            #<%= link_to 'Sign in', new_user_session_path %>
-          #<% end %>
-
-          
-
-
-            
+        <div class="Loanlinks">
+          <%= link_to 'Loan listing', loans_path, style: "background-color: black;" %> 
+          <%= link_to 'Add Applications', new_loan_path, style: "background-color: black;" %>
+          <% if user_signed_in? %>
+            Welcome <%= current_user.email %>
+            <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to 'Sign up', new_user_registration_path %>
+            <%= link_to 'Sign in', new_user_session_path %>
+          <% end %>
         </div>
   </div>
 

@@ -53,23 +53,24 @@ body {
 
 
 <% if @loan.errors.any? %>
-  <ul>
-    <% @loan.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
+<ul>
+  <% @loan.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
 <% end %>
+
 
 <%= form_with(model: @loan, url: loans_path, class: 'loan-form', data: { remote: true }, method: 'post') do |form| %>
 
     <div class="field">
-      <%= form.label :name, class: 'form-label' %><br>
+      <%= form.label :name, class: 'form-label' %>
       <%= form.text_field :name, class: "form-control", id: "name", placeholder: "jack" %>
 
     </div>
   
     <div class="field">
-      <%= form.label :purpose, class: 'form-label' %><br>
+      <%= form.label :purpose, class: 'form-label' %>
       <%= form.select :purpose, options_for_select([
     ['Select', nil],  
     ['Medical Expenses', 'Medical Expenses'],
@@ -82,43 +83,45 @@ body {
     </div>
   
     <div class="field">
-      <%= form.label :amount, class: 'form-label' %><br>
-      <%= form.number_field :amount, class: "form-control", id: "amount", placeholder: "120000" %>
+      <%= form.label :amount, class: 'form-label' %>
+      <%= form.number_field :amount, class: "form-control", id: "amount", placeholder: "$10,000" %>
 
     </div>
   
     <div class="field">
-      <%= form.label :ssn, class: 'form-label' %><br>
+      <%= form.label :ssn, class: 'form-label' %>
       <%= form.text_field :ssn,  class: "form-control", id: "ssn", placeholder: "xxx-xxx-xxx"%>
     </div>
 
     <div class="field">
-      <%= form.label :Email, class: 'form-label' %><br>
-      <%= form.text_field :email_address, type: "email", class: "form-control", id: "email_address", placeholder: "name@example.com" %>
-    </div
+    <%= form.label :Email, class: 'form-label' %>
+    <%= form.text_field :email_address, type: "email", class: "form-control", id: "email_address", placeholder: "name@example.com" %>
+  </div>
   
     <div class="field">
-    <%= form.label :Income, class: 'form-label' %><br>
-    <%= form.text_field :income,  class: "form-control", id: "income", placeholder: "120,0000" %>
+    <%= form.label :Income, class: 'form-label' %>
+    <%= form.text_field :income,  class: "form-control", id: "income", placeholder: " $10,000" %>
     </div>
 
-    <div class="field">
-    <%= form.label :status, class: 'form-label' %>
-  
-    <%= form.radio_button :status, 'active', class: 'form-radio' %>
-    <%= form.label :status_active, class: 'radio-label' do %>
-      Married 
-    <% end %>
-  
-    <%= form.radio_button :status, 'inactive', class: 'form-radio' %>
-    <%= form.label :status_inactive, class: 'radio-label' do %>
-      Unmarried
-    <% end %>
+    <div class="field"><br>
+    <%= form.label :relationship_status, class: 'form-label' %>
+
+
+    
+      <%= form.radio_button :status, 'active', class: 'form-radio' %>
+      <%= form.label :status_active, class: 'radio-label' do %>
+        Married 
+      <% end %>
+    
+      <%= form.radio_button :status, 'inactive', class: 'form-radio' %>
+      <%= form.label :status_inactive, class: 'radio-label' do %>
+        Unmarried
+      <% end %>
   </div>
   
 
     <div class="actions">
-      <%= form.submit "Submit Loan Application", class: 'btn-dang' %>
+      <%= form.submit "Submit Loan Application", class: 'btn-primary' %>
     </div>
   
   <% end %>
