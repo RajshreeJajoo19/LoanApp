@@ -76,7 +76,6 @@
         <th>SSN</th>
         <th>Email</th>
         <th>Income</th>
-        <th>Status</th>
         <th colspan="3">Action</th>
       </tr>
     </thead>
@@ -90,7 +89,7 @@
           <td><%= loan.ssn %></td>
           <td><%= loan.email_address %></td>
           <td><%= loan.income %></td>
-          <td><%= loan.status %></td>
+        
 
           <td>
             <%= link_to 'Show', loan_path(loan), class: 'btn btn-primary btn-action' %>

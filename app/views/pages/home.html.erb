@@ -1,6 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <title>Loan Application</title>
   <style>
     body {
       background-color: #f2f2f2;
@@ -12,49 +16,33 @@
       color: #333;
     }
 
-    a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: bold;
-      margin: 0 10px;
-      padding: 10px 20px;
-      background-color: black;
-      border-radius: 5px;
-      display: inline-block;
+    .loan-links {
+      margin-top: 15%;
     }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .container {
-      margin: 20px;
-      text-align: center; /* Center-align the links */
-    }
-
-    .Loanlinks{
-       margin-top:15%
-    }
-
   </style>
 </head>
 <body>
 
   <div class="container">
-    <h3>Welcome to Loan Application</h3><br><br>
+    <h3 class="mt-4">Welcome to Loan Application</h3>
 
-        <div class="Loanlinks">
-          <%= link_to 'Loan listing', loans_path, style: "background-color: black;" %> 
-          <%= link_to 'Add Applications', new_loan_path, style: "background-color: black;" %>
-          <% if user_signed_in? %>
-            Welcome <%= current_user.email %>
-            <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-          <% else %>
-            <%= link_to 'Sign up', new_user_registration_path %>
-            <%= link_to 'Sign in', new_user_session_path %>
-          <% end %>
-        </div>
+    <div class="loan-links mt-5">
+      
+      <% if user_signed_in? %>
+      <div class="text-muted">
+        Welcome <%= current_user.email %> 
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-outline-dark ml-2" %>
+        <%= link_to 'Loan listing', loans_path, class: "btn btn-dark mr-2" %> 
+        <%= link_to 'Add Applications', new_loan_path, class: "btn btn-dark mr-2" %>
+      </div>
+      <% else %>
+        <p>hello</p>
+      <% end %>
+    </div>
   </div>
 
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>

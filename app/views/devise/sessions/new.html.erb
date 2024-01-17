@@ -7,11 +7,13 @@
         <div class="mb-3">
           <%= f.label :email, class: "form-label" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+          <%= render "devise/shared/error_messages", resource: resource, field: :email %>
         </div>
 
         <div class="mb-3">
           <%= f.label :password, class: "form-label" %>
           <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+          <%= render "devise/shared/error_messages", resource: resource, field: :password %>
         </div>
 
         <% if devise_mapping.rememberable? %>

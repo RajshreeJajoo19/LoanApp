@@ -2,13 +2,14 @@ class LoansController < ApplicationController
 
     
     def show
-        #debugger
-        @loan = Loan.find(params[:id])
-        respond_to do |format|
-            format.html { render action: "show" }
-            format.js { render json: {} }
-          end
-        end
+      #debugger
+      @loan = Loan.find(params[:id])
+      respond_to do |format|
+        format.html { render action: "show" }
+        format.js { render json: {} }
+      end
+    end
+      
 
     def index
         @loans = Loan.all
@@ -28,41 +29,49 @@ class LoansController < ApplicationController
     # Create action to save data in the Loan model
 
 
-    #def create
-        #@loan = Loan.new(loan_params)
-        #if @loan.save
-            #flash[:notice] = "Loan application was created successfully"
-            #redirect_to loans_path
-        #else
-           #redirect_to new_loan_path, alert: @loan.errors.full_messages.join(', ')
-            #render 'new'
-        #end
-    #end
+    # def create
+    #     @loan = Loan.new(loan_params)
+    #     if @loan.save
+    #         flash[:notice] = "Loan application was created successfully"
+    #         redirect_to loans_path
+    #     else
+    #        redirect_to new_loan_path, alert: @loan.errors.full_messages.join(', ')
+    #         #render 'new'
+    #     end
+    # end
 
     def create
       @loan = Loan.new(loan_params)
+      # debugger
       respond_to do |format|
+        amount = get_unmasked_value(loan_params[:amount])
+        income = get_unmasked_value(loan_params[:income])
+      
+        @loan.amount = amount.to_i if amount.present?
+        @loan.income = income.to_i if income.present?
+    
         if @loan.save
           format.html { redirect_to loans_path, notice: "Loan application was created successfully" }
           format.js   { puts "AJAX request succeeded!" }
           format.json { render json: {} }
         else
-          puts "*" * 100
-          puts @loan.errors.full_messages
-          puts "*" * 100
-          #format.html { render action: "new"} 
-          #format.json { render json: { errors: @loan.errors.full_messages }, status: :unprocessable_entity }
+          format.html { render action: "new" } # You might want to render the 'new' view on failure
+          format.json { render json: { errors: @loan.errors.full_messages }, status: :unprocessable_entity }
           format.js   { render layout: false, content_type: 'text/javascript' }
         end
       end
     end
+
+    def get_unmasked_value(value)
+      if value.present? && value.is_a?(String)
+        unmasked_value = value.gsub(/[^0-9]/, '')
+      else
+        unmasked_value = nil
+      end
+    end  
     
-
-
-
     def update
         @loan = Loan.find(params[:id])
-      
         if @loan.update(loan_params)
           flash[:notice] = "Loan was updated successfully"
           redirect_to loans_path
@@ -81,7 +90,7 @@ class LoansController < ApplicationController
     private
     
     def loan_params
-      params.require(:loan).permit(:name, :purpose, :amount, :ssn, :email_address, :income, :status)
+      params.require(:loan).permit(:name, :purpose, :phonenumber, :amount, :ssn, :email_address, :income)
     end
 
 end

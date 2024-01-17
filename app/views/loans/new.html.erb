@@ -1,18 +1,16 @@
-
-
-                 <h2> <center> Create a new Loan Application </center> </h2><br>
+<h2><center>Create a new Loan Application</center></h2><br>
 
 <style>
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 20px!important;
-  }
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 20px!important;
+}
 
-  h1 {
-    color: #333;
-  }
+h1 {
+  color: #333;
+}
 
 .loan-form {
   max-width: 400px!important;
@@ -48,80 +46,118 @@ body {
 .submit-button:hover {
   background-color: #45a049;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 </style>
 
-
-
 <% if @loan.errors.any? %>
-<ul>
-  <% @loan.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
-</ul>
+  <ul>
+    <% @loan.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
 <% end %>
-
 
 <%= form_with(model: @loan, url: loans_path, class: 'loan-form', data: { remote: true }, method: 'post') do |form| %>
 
-    <div class="field">
-      <%= form.label :name, class: 'form-label' %>
-      <%= form.text_field :name, class: "form-control", id: "name", placeholder: "jack" %>
+  <div class="field">
+    <%= form.label :name, class: 'form-label' %>
+    <%= form.text_field :name, class: 'form-input', id: 'name', placeholder: 'name' %>
+  </div>
 
-    </div>
-  
-    <div class="field">
-      <%= form.label :purpose, class: 'form-label' %>
-      <%= form.select :purpose, options_for_select([
-    ['Select', nil],  
-    ['Medical Expenses', 'Medical Expenses'],
-    ['Gold', 'Gold'],
-    ['Education', 'Education'],
-    ['Home', 'Home'],
-    ['Vehicle', 'Vehicle']
+  <div class="field">
+    <%= form.label :purpose, class: 'form-label' %>
+    <%= form.select :purpose, options_for_select([
+      ['Select', nil],  
+      ['Medical Expenses', 'Medical Expenses'],
+      ['Gold', 'Gold'],
+      ['Education', 'Education'],
+      ['Home', 'Home'],
+      ['Vehicle', 'Vehicle']
     ]), {}, class: 'form-input' %>
-
-    </div>
-  
-    <div class="field">
-      <%= form.label :amount, class: 'form-label' %>
-      <%= form.number_field :amount, class: "form-control", id: "amount", placeholder: "$10,000" %>
-
-    </div>
-  
-    <div class="field">
-      <%= form.label :ssn, class: 'form-label' %>
-      <%= form.text_field :ssn,  class: "form-control", id: "ssn", placeholder: "xxx-xxx-xxx"%>
-    </div>
-
-    <div class="field">
-    <%= form.label :Email, class: 'form-label' %>
-    <%= form.text_field :email_address, type: "email", class: "form-control", id: "email_address", placeholder: "name@example.com" %>
   </div>
-  
-    <div class="field">
-    <%= form.label :Income, class: 'form-label' %>
-    <%= form.text_field :income,  class: "form-control", id: "income", placeholder: " $10,000" %>
-    </div>
 
-    <div class="field"><br>
-    <%= form.label :relationship_status, class: 'form-label' %>
-
-
-    
-      <%= form.radio_button :status, 'active', class: 'form-radio' %>
-      <%= form.label :status_active, class: 'radio-label' do %>
-        Married 
-      <% end %>
-    
-      <%= form.radio_button :status, 'inactive', class: 'form-radio' %>
-      <%= form.label :status_inactive, class: 'radio-label' do %>
-        Unmarried
-      <% end %>
+  <div class="field">
+    <%= form.label :amount, class: 'form-label' %>
+    <%= form.text_field :amount, class: 'form-input', id: 'user_amount', placeholder: '$10,000',  oninput: "maskincome(this)" %>
   </div>
-  
 
-    <div class="actions">
-      <%= form.submit "Submit Loan Application", class: 'btn-primary' %>
-    </div>
-  
-  <% end %>
+  <div class="field">
+    <%= form.label :ssn, class: 'form-label' %><br>
+    <%= form.text_field :ssn, class: 'form-input', placeholder: 'xxx-xx-xxxx', id: 'user_ssn', oninput: "maskssn(this)"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :email_address, class: 'form-label' %>
+    <%= form.text_field :email_address, type: 'email', class: 'form-input', id: 'email_address', placeholder: 'name@example.com' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :income, class: 'form-label' %>
+    <%= form.text_field :income, class: 'form-input', id: 'user_income', placeholder: '$10,000', oninput: "maskincome(this)" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phonenumber, class: 'form-label' %>
+    <%= form.text_field :phonenumber, class: 'form-input', id: 'phonenumber', placeholder: '555-555-5555', oninput: "maskPhoneNumber(this)" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Submit Loan Application', class: 'btn-primary' %>
+  </div>
+
+<% end %>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.9/jquery.inputmask.min.js"></script>
+
+   
+
+<script>
+   
+function maskssn(input) {
+  let ssn = document.getElementById('user_ssn');
+  // SSN masking
+  ssn.addEventListener('input', function() {
+    let inputValue = ssn.value.replace(/\D/g, ''); // Remove non-numeric characters
+    let formattedValue = '';
+    if (inputValue.length > 0) {
+      // Adjusted regex and substring for xxx-xx-xxxx format
+      formattedValue = inputValue.match(/(\d{0,3})(\d{0,2})(\d{0,4})/).slice(1, 4).filter(Boolean).join('-');
+    }
+    ssn.value = formattedValue;
+  });
+}
+
+
+// masking input
+function maskincome(input) {
+  var value = input.value.replace(/[^0-9.]/g, '');
+  value = '$' + value;
+  var parts = value.split('.');
+  if (parts.length > 1) {
+    value = parts[0] + '.' + parts[1].slice(0, 2);
+  }
+  input.value = value;
+}
+
+
+function maskPhoneNumber(input) {
+var value = input.value.replace(/\D/g, '');
+if (value.length > 6) {
+  value = '(' + value.slice(0, 3) + ') ' + value.slice(3, 6) + '-' + value.slice(6, 10);
+} else if (value.length > 3) {
+  value = '(' + value.slice(0, 3) + ') ' + value.slice(3, 6);
+}
+input.value = value;
+}
+
+
+</script>
+
+
+
+
