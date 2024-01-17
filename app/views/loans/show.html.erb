@@ -3,58 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Add Bootstrap CDN -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f4f4f4;
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
     }
 
-    .loan-application {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      width: 300px;
+    body {
+      background-image: url('/assets/abtbackgd.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
     }
 
-    h1 {
+    h5 {
       text-align: center;
       color: #333;
+      font-size: 36px;
+      margin-bottom: 30px;
     }
 
-    p {
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    }
+
+    .loan-application p {
       margin: 10px 0;
-      color: #555;
     }
 
-    strong {
-      color: #333;
+
+    .loan-links {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .loan-links a {
+      margin: 5px;
+    }
+
+    .logo {
+      max-width: 100px;
+      margin-right: 15px;
     }
   </style>
 </head>
 <body>
-  <div class="loan-application">
+  <div class="container loan-application">
+    <h5>Loan Application Details</h5>
+    <hr>
 
-    
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>Name:</strong> <%= @loan.name %></p>
+        <p><strong>Purpose:</strong> <%= @loan.purpose %></p>
+        <p><strong>Amount:</strong> <%= @loan.amount %></p>
+      </div>
+      <div class="col-md-6">
+        <p><strong>SSN:</strong> <%= @loan.ssn %></p>
+        <p><strong>Email:</strong> <%= @loan.email_address %></p>
+        <p><strong>Income:</strong> <%= @loan.income %></p>
+      </div>
+    </div>
 
-    <h3> <center> Loan Application Details </center> </h3> <br>
-
-
-    <%= link_to "Click me", loans_path(nil),  remote: true %>
-
-    <p><strong>Name:</strong> <%= @loan.name %></p>
-    <p><strong>Purpose:</strong> <%= @loan.purpose %></p>
-    <p><strong>Amount:</strong> <%= @loan.amount %></p>
-    <p><strong>SSN:</strong> <%= @loan.ssn %></p>
-    <p><strong>Email:</strong> <%= @loan.email_address %></p>
-    <p><strong>Income:</strong> <%= @loan.income %></p>
-    
+    <div class="loan-links text-center">
+      <%= link_to "Back", loans_path(nil), class: "btn btn-secondary", remote: true %>
+    </div>
   </div>
+
+  <!-- Add Bootstrap JS and Popper.js -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
