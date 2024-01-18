@@ -1,89 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <title>Loan Application</title>
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
 
-    body {
-      background-image: url('/assets/abtbackgd.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-
-    h3 {
-      text-align: center;
-      color: #333;
-      font-size: 36px;
-      margin-bottom: 30px;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background */
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-    }
-
-    .about-us {
-      text-align: justify;
-      color: #555;
-      line-height: 1.6;
-    }
-
-    .loan-links {
-      margin-top: 20px;
-      text-align: center;
-    }
-
-    .loan-links a {
-      margin: 5px;
-    }
-
-    .logo {
-      max-width: 100px;
-      margin-right: 15px;
-    }
-  </style>
-</head>
 <body>
 
-  <div class="container">
-    <!-- Add your logo here -->
-  
-    <h5> <center>  Welcome to Loan Application </center> </h5>
+  <div class="background-container">
+    <div class="left-side"></div>
 
-    <div class="about-us">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula aliquet diam, ut finibus justo vestibulum ut. Nulla facilisi. Donec condimentum aliquet nunc, nec cursus leo suscipit ac. Nullam vel magna vel libero fermentum volutpat a eu elit.</p>
-      <!-- Add more about us content as needed -->
-    </div>
-
-    <div class="loan-links mt-5">
-      <% if user_signed_in? &&  current_user.user_role == 2 %>
-        <div class="text-muted">
-          <!-- Welcome <%= current_user.email %>  -->
-          <!-- <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-outline-dark ml-2" %>
-          <%= link_to 'Loan listing', loans_path, class: "btn btn-dark mr-2" %>  -->
+    <div class="right-side">
+      <div class="container">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title">Select Wisely</h5>
+          </div>
+          <div class="card-body">
+            <ul class="features-list">
+              <li>Compare & Choose the Best Offer</li>
+              <li>Check Loan Amount Eligibility</li>
+              <li>Know your Approval Chances</li>
+            </ul>
+          </div>
         </div>
-      <% else %>
 
-      <% end %>
+        <div class="loan-links mt-5">
+          <!-- Add your logic for loan links here -->
+        </div>
+      </div>
     </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -9,7 +9,7 @@ class CustomSessionsController < Devise::SessionsController
 
     def create
       super do |resource|
-        if resource.user_role == 2
+        if resource.user_role?
           redirect_to loans_path and return
         end
       end

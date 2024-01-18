@@ -12,7 +12,11 @@ class LoansController < ApplicationController
       
 
     def index
+      if current_user.user_role == 1
+        @loans = Loan.where(user_id: current_user.id)
+      else
         @loans = Loan.all
+      end 
     end
 
 
@@ -42,6 +46,10 @@ class LoansController < ApplicationController
 
     def create
       @loan = Loan.new(loan_params)
+
+      # Set user_id to the current user's ID
+      @loan.user_id = current_user.id
+
       # debugger
       respond_to do |format|
         amount = get_unmasked_value(loan_params[:amount])

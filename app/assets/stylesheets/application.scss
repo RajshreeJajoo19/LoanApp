@@ -16,3 +16,215 @@
 /* Add this line at the top of the file */
  @import 'bootstrap';
 
+
+/* Global Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Shared Styles */
+.loan-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.loan-links a {
+    margin: 5px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.loan-form-container{
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+.about-us {
+    text-align: justify;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Main Layout Styles */
+.background-container {
+    display: flex;
+    height: 100%;
+}
+
+#sign_up_btn{
+    margin-right: 20px;
+}
+
+.left-side {
+    background-image: url('/assets/abtbackgd.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 50%;
+    overflow: hidden;
+    position: fixed;
+    height: 100%;
+}
+
+.right-side {
+    width: 50%;
+    margin-left: 50%;
+    padding: 20px;
+    background-color: #add8e6;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Styles */
+.card {
+    border: none;
+}
+
+.card-header {
+    background-color: #63ace5;
+    border-radius: 15px 15px 0 0;
+    text-align: center;
+    padding: 15px;
+}
+
+.card-title {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.features-list li {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Table Styles */
+h4 {
+    color: #333;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid black;
+}
+
+th, td {
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.btn-action {
+    text-decoration: none !important;
+    margin-right: 5px;
+}
+
+.button, .deletebutton {
+    font-size: 15px;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 5px;
+    width: 80px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.deletebutton {
+    width: 100px;
+}
+
+.button:hover, .deletebutton:hover {
+    background-color: #c82333 !important;
+}
+
+/* Form Styles */
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+.loan-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.submit-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+
+/* Miscellaneous Styles */
+.logo {
+    max-width: 70px;
+    margin-right: 15px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
