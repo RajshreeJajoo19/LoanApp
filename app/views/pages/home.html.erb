@@ -66,7 +66,7 @@
   <div class="container">
     <!-- Add your logo here -->
   
-    <h3 class="mt-4">Welcome to Loan Application</h3>
+    <h5> <center>  Welcome to Loan Application </center> </h5>
 
     <div class="about-us">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula aliquet diam, ut finibus justo vestibulum ut. Nulla facilisi. Donec condimentum aliquet nunc, nec cursus leo suscipit ac. Nullam vel magna vel libero fermentum volutpat a eu elit.</p>
@@ -74,15 +74,14 @@
     </div>
 
     <div class="loan-links mt-5">
-      <% if user_signed_in? %>
+      <% if user_signed_in? &&  current_user.user_role == 2 %>
         <div class="text-muted">
-          <!-- Welcome <%= current_user.email %> 
-          <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-outline-dark ml-2" %> -->
-          <!-- <%= link_to 'Loan listing', loans_path, class: "btn btn-dark mr-2" %> 
-          <%= link_to 'Add Applications', new_loan_path, class: "btn btn-dark mr-2" %> -->
+          <!-- Welcome <%= current_user.email %>  -->
+          <!-- <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-outline-dark ml-2" %>
+          <%= link_to 'Loan listing', loans_path, class: "btn btn-dark mr-2" %>  -->
         </div>
       <% else %>
-        <p>hello</p>
+
       <% end %>
     </div>
   </div>
