@@ -1,44 +1,45 @@
-
 <body>
-
-                    <h5> <center> Loans Listing Page </center> </h5>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Purpose</th>
-        <th>Amount</th>
-        <th>SSN</th>
-        <th>Email</th>
-        <th>Income</th>
-        <th colspan="3">Action</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @loans.each do |loan| %>
+  <h5> <center> Loans Listing Page </center> </h5> <br>
+  <% if @loans.present? %>
+    <table class="table">
+      <!-- Table header code (unchanged) -->
+      <thead>
         <tr>
-          <td><%= loan.name %></td>
-          <td><%= loan.purpose %></td>
-          <td><%= loan.amount %></td>
-          <td><%= loan.ssn %></td>
-          <td><%= loan.email_address %></td>
-          <td><%= loan.income %></td>
-        
-
-          <td>
-            <%= link_to 'Show', loan_path(loan), class: 'btn btn-primary btn-action' %>
-            <%= link_to 'Edit', edit_loan_path(loan), class: 'btn btn-warning btn-action' %><br><br>
-            <%= button_to 'Delete', loan_path(loan), method: :delete, class: 'btn btn-danger btn-action' %>
-          </td>
+          <th>Name</th>
+          <th>Purpose</th>
+          <th>Amount</th>
+          <th>SSN</th>
+          <th>Email</th>
+          <th>Income</th>
+          <th colspan="3">Action</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <!-- Add Bootstrap JS and Popper.js scripts here -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      </thead>
+      <!-- Table body code -->
+      <tbody>
+        <% @loans.each do |loan| %>
+          <tr>
+            <!-- Row data (unchanged) -->
+            <td><%= loan.name %></td>
+            <td><%= loan.purpose %></td>
+            <td><%= loan.amount %></td>
+            <td><%= loan.ssn %></td>
+            <td><%= loan.email_address %></td>
+            <td><%= loan.income %></td>
+            <!-- Action buttons (unchanged) -->
+            <td>
+              <%= link_to 'Show', loan_path(loan), class: 'btn btn-primary btn-action' %>
+              <%= link_to 'Edit', edit_loan_path(loan), class: 'btn btn-warning btn-action' %><br><br>
+              <%= button_to 'Delete', loan_path(loan), method: :delete, class: 'btn btn-danger btn-action' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <div class="no-records">
+      <h5> <center> Oops! No records found. </center> </h5>
+      <p class="appealing-message"> <center> Looks like there are no loans to display at the moment. Don't worry, you can always add a new one! </center></p>
+    </div>
+  <% end %>
 </body>
 </html>

@@ -36,7 +36,7 @@
 
               <div class="col-md-4">
                   <div class="field">
-                    <%= form.label :purpose, class: 'form-label' %>
+                    <%= form.label :'Loan Purpose', class: 'form-label custom-label'  %>
                     <%= form.select :purpose, options_for_select([
                       ['Select', nil],
                       ['Medical Expenses', 'Medical Expenses'],
@@ -44,7 +44,7 @@
                       ['Education', 'Education'],
                       ['Home', 'Home'],
                       ['Vehicle', 'Vehicle']
-                    ], selected: @loan.purpose), { class: 'form-control' } %>
+                    ], selected: @loan.purpose), {}, class: 'form-input' %>
                   </div>
               </div>
 

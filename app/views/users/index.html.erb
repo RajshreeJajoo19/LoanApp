@@ -1,0 +1,36 @@
+
+<body>
+    <h5> <center> Users Listing Page </center> </h5> <br>
+    <% if  @users.present? %>
+        <table class="table">
+        <!-- Table header code (unchanged) -->
+        <thead>
+            <tr>
+            <th>Email</th>
+            <th colspan="3">Action</th>
+            </tr>
+        </thead>
+        <!-- Table body code -->
+        <tbody>
+            <%  @users.each do |user| %>
+            <tr>
+                <!-- Row data (unchanged) -->
+                <td><%= user.email %></td>
+                <!-- Action buttons (unchanged) -->
+                <td>
+                    <%= button_to 'Delete', user_path(user), method: :delete, class: 'btn btn-danger btn-action', data: { confirm: 'Are you sure?' } %>
+
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+        </table>
+    <% else %>
+        <div class="no-records">
+        <h5> <center> Oops! No records found. </center> </h5>
+        <p class="appealing-message"> <center> Looks like there are no loans to display at the moment. Don't worry, you can always add a new one! </center></p>
+        </div>
+    <% end %>
+    </body>
+    </html>
+                  
