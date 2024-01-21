@@ -22,7 +22,8 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to 'My Account', new_user_registration_path, class: "btn btn-success mr-2", id: "sign_up_btn" %>
+          <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-success mr-2", id: "sign_up_btn" %>
+          <%= link_to 'Log In', user_session_path, class: "btn btn-success mr-2", id: "sign_up_btn" %>
         </li>
       <% end %>
     </ul>

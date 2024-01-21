@@ -66,16 +66,36 @@
     <hr>
 
     <div class="row">
+
       <div class="col-md-6">
-        <p><strong>Name:</strong> <%= @loan.name %></p>
-        <p><strong>Purpose:</strong> <%= @loan.purpose %></p>
-        <p><strong>Amount:</strong> <%= @loan.amount %></p>
-      </div>
-      <div class="col-md-6">
-        <p><strong>SSN:</strong> <%= @loan.ssn %></p>
+        <p><strong>First Name:</strong> <%= @loan.name %></p>
+        <p><strong>Last Name:</strong> <%= @loan.lastName %></p>
         <p><strong>Email:</strong> <%= @loan.email_address %></p>
-        <p><strong>Income:</strong> <%= @loan.income %></p>
+        <p><strong>SSN:</strong> <%= @loan.ssn %></p>
+        <p><strong>Phone Number:</strong> <%= @loan.phonenumber %></p>
+        <p><strong>DateOfBirth:</strong> <%= @loan.dateOfBirth %></p>
+        <p><strong>Address:</strong> <%= @loan.Address %></p>
+        <p><strong>City:</strong> <%= @loan.city %></p>
+        <p><strong>State:</strong> <%= @loan.state %></p>
+        <p><strong>Pincode:</strong> <%= @loan.pincode %></p>
+        <p><strong>Maritial Status:</strong> <%= @loan.maritalstatus %></p>
+        <p><strong>Dependents:</strong> <%= @loan.dependents %></p>
       </div>
+
+      <div class="col-md-6">
+        <p><strong> Loan Purpose:</strong> <%= @loan.purpose %></p>
+        <p><strong>Amount:</strong> <%= @loan.amount %></p> 
+      </div>
+
+
+      <div class="col-md-6">
+        <p><strong>Profession:</strong> <%= @loan.jobtitle %></p>
+        <p><strong>Income:</strong> <%= @loan.income %></p>
+        <p><strong>Company Name:</strong> <%= @loan.companyname %></p>
+        <p><strong>Company Address:</strong> <%= @loan.companyaddress %></p>
+        <p><strong>Business Number:</strong> <%= @loan.busiessNumber %></p>
+      </div>
+
     </div>
 
     <div class="loan-links text-center">

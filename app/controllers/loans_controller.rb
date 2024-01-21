@@ -84,10 +84,10 @@ class LoansController < ApplicationController
           flash[:notice] = "Loan was updated successfully"
           redirect_to loans_path
         else
-          redirect_to new_loan_path, alert: @loan.errors.full_messages.join(', ')
+          redirect_to loans_path, alert: @loan.errors.full_messages.join(', ')
           # render 'edit' # Uncomment this line if you want to render the edit view on failure
         end
-      end
+    end
       
     def destroy 
         @loan = Loan.find(params[:id])
@@ -98,7 +98,8 @@ class LoansController < ApplicationController
     private
     
     def loan_params
-      params.require(:loan).permit(:name, :purpose, :phonenumber, :amount, :ssn, :email_address, :income)
+      params.require(:loan).permit(:name, :lastName, :ssn, :email_address, :Address, :city, :state, :pincode, :martialstatus, :dependents, :dateOfBirth, :phonenumber, :purpose, :amount, :jobtitle, :income, :companyname, :companyaddress, :busiessNumber)
     end
+    
 
 end
