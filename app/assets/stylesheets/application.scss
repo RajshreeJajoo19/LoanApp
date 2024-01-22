@@ -15,6 +15,7 @@
  */
 /* Add this line at the top of the file */
  @import 'bootstrap';
+ @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
 
 
 /* Global Styles */
@@ -23,7 +24,9 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color:white;
+    font-size: 14px;
+
 }
 
 /* Shared Styles */
@@ -237,5 +240,76 @@ input::-webkit-inner-spin-button {
     margin-left: 20px;
     text-decoration: none;
 }
+
+
+  .no-records {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .appealing-message {
+    color: #888;
+  }
+  .card1{
+
+    border:1px solid black;
+    border-radius: 10px;
+    // height:100%;
+    background-color:#41B3AB;
+  }
+  .card-title{
+
+    color:black;
+
+  }
+
+  .flash-notice {
+    font-size: 18px;
+    color: #222c21; 
+    background-color: #adf796;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
   
+  .flash-notice em {
+    font-style: normal;
+    font-weight: bold;
+    color: #58e944; 
+  
+  }
+  .flash-alert {
+    font-size: 18px;
+    color: #d9534f; 
+    background-color: #f2dede; 
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+
+  .flash-alert em {
+    font-style: normal;
+    font-weight: bold;
+    color: #a94442; 
+  }
+  
+
+  .flash-notice:hover,
+  .flash-alert:hover {
+    box-shadow: 0 8px 16px rgba(52, 55, 52, 0.3); 
+    transform: translateY(-2px); 
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+  }
+  .text-right {
+    text-align: right;
+  }
+  
+  th {
+    text-align: center;
+  }
   

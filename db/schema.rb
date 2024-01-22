@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_21_163339) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_22_084639) do
   create_table "loan_applications", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -48,7 +48,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_21_163339) do
     t.string "Address"
     t.string "city"
     t.string "state"
-    t.decimal "pincode"
+    t.string "pincode"
     t.string "maritalstatus"
     t.string "dependents"
     t.string "dateOfBirth"

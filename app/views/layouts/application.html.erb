@@ -16,9 +16,9 @@
 
   <body>
     <%= render 'partials/navbar' %>
-    <% flash.each do |name, msg| %>
-    <%= msg %>
-    <% end %>
+      <% flash.each do |name, msg| %> <% if msg.is_a?(String) %>
+      <div class="flash-<%= name %>"><%= msg %></div>
+      <% end %> <% end %>
     <%= yield %>
   </body>
 </html>
