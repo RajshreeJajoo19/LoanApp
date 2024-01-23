@@ -2,180 +2,171 @@
   <body>
                 
       <div class="container-fluid">
-              <br>
-                  <b> New Loan </b> 
-              <br>
+              <!-- <br>
+                  <b class="PageTitles"> New Loan </b> 
+              <br> -->
 
           <%= form_with(model: @loan, url: loans_path, class: 'loan-form-new', data: { remote: true }, method: 'post') do |form| %>
             <br><br>
 
             <div class="row">
-
+                      <div class="col-md-1"></div>
                       <!-- card 1 -->
-                      <div class="col-md-4">
+                      <div class="col-md-5">
                           <!-- <h5> <u><center> Personal Details </center></u></h5> -->
-                            <div class="card1" style="width:25rem;">
+                            <div class="card1" style="width:35rem;">
                               <div class="card-body">
                                 <h5 class="card-title"> Personal Details </h5>
                               
                                   <div class="field">
-                                      <%= form.label :'First Name', class: 'form-label custom-label' %>
-                                      <%= form.text_field :name, class: 'form-input', id: 'firstname', placeholder: 'First Name' %>
+                                      <!-- <%= form.label :'First Name', class: 'form-label custom-label' %> -->
+                                      <%= form.text_field :name, class: 'form-control mb-2', id: 'firstname', placeholder: 'First Name' %>
                                   </div>
                               
                         
                                   <div class="field">
-                                      <%= form.label :'Last Name', class: 'form-label custom-label' %>
-                                      <%= form.text_field :lastName, class: 'form-input', id: 'lastname', placeholder: 'Last Name' %>
+                                      <!-- <%= form.label :'Last Name', class: 'form-label custom-label' %> -->
+                                      <%= form.text_field :lastName, class: 'form-control mb-2', id: 'lastname', placeholder: 'Last Name' %>
                                   </div>
                               
 
                                   <div class="field">
-                                    <%= form.label :'Email Address', class: 'form-label custom-label' %>
-                                    <%= form.text_field :email_address, type: 'email', class: 'form-input', id: 'email_address', placeholder: 'name@example.com' %>
+                                    <!-- <%= form.label :'Email Address', class: 'form-label custom-label' %> -->
+                                    <%= form.text_field :email_address, type: 'email', class: 'form-control mb-2', id: 'email_address', placeholder: 'name@example.com' %>
                                   </div>
                       
                         
                                   <div class="field">
-                                    <%= form.label :'Phone Number', class: 'form-label custom-label' %>
-                                    <%= form.text_field :phonenumber, class: 'form-input', id: 'phonenumber', placeholder: '555-555-5555', oninput: "maskPhoneNumber(this)" %>
+                                    <!-- <%= form.label :'Phone Number', class: 'form-label custom-label' %> -->
+                                    <%= form.text_field :phonenumber, class: 'form-control mb-2', id: 'phonenumber', placeholder: '555-555-5555', oninput: "maskPhoneNumber(this)" %>
                                   </div>
                             
                                   <div class="field">
-                                    <%= form.label :'Date of Birth', class: 'form-label custom-label' %>
-                                    <%= form.text_field :dateOfBirth, class: 'form-input', id: 'user_dob', placeholder: 'Date of Birth'%>
+                                    <!-- <%= form.label :'Date of Birth', class: 'form-label custom-label' %> -->
+                                    <%= form.text_field :dateOfBirth, class: 'form-control mb-2', id: 'datepicker', placeholder: 'Date of Birth'%>        
+                                      <!-- <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                             -->
                                   </div>
-                        
-                              
+
+
+          
                                   <div class="field">
-                                    <%= form.label :'Social Security Number', class: 'form-label' %>
-                                    <%= form.text_field :ssn, class: 'form-input', placeholder: 'xxx-xx-xxxx', id: 'user_ssn', oninput: "maskssn(this)"%>
+                                    <!-- <%= form.label :'Social Security Number', class: 'form-label' %> -->
+                                    <%= form.text_field :ssn, class: 'form-control mb-2', placeholder: 'xxx-xx-xxxx', id: 'user_ssn', oninput: "maskssn(this)"%>
                                   </div>
 
                           
                                   <div class="field">
-                                    <%= form.label :'Address', class: 'form-label' %>
-                                    <%= form.text_area :Address, class: 'form-input', placeholder: 'Address', id: 'user_address'%>
+                                    <!-- <%= form.label :'Address', class: 'form-label' %> -->
+                                    <%= form.text_area :Address, class: 'form-control mb-2', placeholder: 'Address', id: 'user_address'%>
                                   </div>
                               
                                   <div class="field">
-                                    <%= form.label :'city', class: 'form-label' %>
-                                    <%= form.text_field :city, class: 'form-input', placeholder: 'City', id: 'user_city'%>
+                                    <!-- <%= form.label :'city', class: 'form-label' %> -->
+                                    <%= form.text_field :city, class: 'form-control mb-2', placeholder: 'City', id: 'user_city'%>
                                   </div>
                               
                                   <div class="field">
-                                    <%= form.label :'state', class: 'form-label' %>
-                                    <%= form.text_field :state, class: 'form-input', placeholder: 'State', id: 'user_state'%>
+                                    <!-- <%= form.label :'state', class: 'form-label' %> -->
+                                    <%= form.text_field :state, class: 'form-control mb-2', placeholder: 'State', id: 'user_state'%>
                                   </div>
                               
                                   <div class="field">
-                                    <%= form.label :'pincode', class: 'form-label' %>
-                                    <%= form.text_field :pincode, class: 'form-input', placeholder: 'Pincode', id: 'user_pincode'%>
+                                    <!-- <%= form.label :'pincode', class: 'form-label' %> -->
+                                    <%= form.text_field :pincode, class: 'form-control mb-2', placeholder: 'Pincode', id: 'user_pincode'%>
                                   </div>
-                                
+                               
                                   <div class="field">
-                                      <%= form.label :'Maritial Status', class: 'form-label custom-label' %>
+                                      <!-- <%= form.label :'Maritial Status', class: 'form-label custom-label' %> -->
                                       <%= form.select :maritalstatus, options_for_select([
-                                        ['Select', nil],  
+                                        ['Marital Status', nil],  
                                         ['Married', 'Married'],
                                         ['Unmarried', 'Unmarried'],
                                         ['Widow', 'Widow'],
                                         ['Divorce', 'Divorce'],
-                                      ]), {}, class: 'form-input' %>
+                                      ]), {}, class: 'form-control mb-2' %>
                                   </div>
                             
                                 <div class="field">
-                                    <%= form.label :'Dependents', class: 'form-label custom-label' %>
-                                    <%= form.select :dependents, options_for_select([
+                                    <!-- <%= form.label :'Dependents', class: 'form-label custom-label' %> -->
+                                    <%= form.select :Dependents, options_for_select([
                                       ['Select', nil],  
                                       ['Yes', 'Yes'],
                                       ['No', 'No'],
-                                    ]), {}, class: 'form-input' %>
+                                    ]), {}, class: 'form-control mb-2' %>
                                 </div>
                           
                                 
                               </div>
                             </div>
-                      </div>
+                      </div> 
                       <!-- card 1 end -->
 
-
                       <!-- card 2 -->
-                      <div class="col-md-4">          
+                      <div class="col-md-5">          
                         
-                        <div class="card1" style="width:25rem;">               
+                        <div class="card1" style="width:35rem;">               
                               <div class="card-body">
                                     <h5 class="card-title"> Employee Details</h5>
 
                                       <div class="field">
-                                        <%= form.label :'Profession', class: 'form-label custom-label' %>
-                                        <%= form.text_field :jobtitle, class: 'form-input', id: 'user_jobtitle', placeholder: 'Profession' %>
+                                        <!-- <%= form.label :'Profession', class: 'form-label custom-label' %> -->
+                                        <%= form.text_field :jobtitle, class: 'form-control mb-2', id: 'user_jobtitle', placeholder: 'Profession' %>
                                       </div>
                                               
                                       <div class="field">
-                                        <%= form.label :'Company Name', class: 'form-label custom-label' %>
-                                        <%= form.text_field :companyname, class: 'form-input', id: 'user_comapnyname', placeholder: 'Company Name' %>
+                                        <!-- <%= form.label :'Company Name', class: 'form-label custom-label' %> -->
+                                        <%= form.text_field :companyname, class: 'form-control mb-2', id: 'user_comapnyname', placeholder: 'Company Name' %>
                                       </div>
                                           
                                       <div class="field">
-                                        <%= form.label :'Company Address', class: 'form-label custom-label' %>
-                                        <%= form.text_area :companyaddress, class: 'form-input', id: 'user_companyaddress',  placeholder: 'Company Address'%>
+                                        <!-- <%= form.label :'Company Address', class: 'form-label custom-label' %> -->
+                                        <%= form.text_area :companyaddress, class: 'form-control mb-2', id: 'user_companyaddress',  placeholder: 'Company Address'%>
                                       </div>
                         
                                     
                                       <div class="field">
-                                        <%= form.label :'Annual Income', class: 'form-label custom-label' %>
-                                        <%= form.text_field :income, class: 'form-input', id: 'user_income', placeholder: '$10,000', oninput: "maskincome(this)" %>
+                                        <!-- <%= form.label :'Annual Income', class: 'form-label custom-label' %> -->
+                                        <%= form.text_field :income, class: 'form-control mb-2', id: 'user_income', placeholder: '$10,000', oninput: "maskincome(this)" %>
                                       </div>
                                   
                                       <div class="field">
-                                        <%= form.label :'Business Number', class: 'form-label custom-label' %>
-                                        <%= form.text_field :busiessNumber, class: 'form-input', id: 'user_businessnumber', placeholder: '555-555-5555', oninput: "maskPhoneNumber(this)" %>
-                                      </div>                       
+                                        <!-- <%= form.label :'Business Number', class: 'form-label custom-label' %> -->
+                                        <%= form.text_field :busiessNumber, class: 'form-control mb-2', id: 'user_businessnumber', placeholder: '555-555-5555', oninput: "maskPhoneNumber(this)" %>
+                                      </div>      
+                                      
+                                      <h5 class="card-title"> Loan Details </h5>
+                                      <div class="field">
+                                        <!-- <%= form.label :'Loan Purpose', class: 'form-label custom-label' %> -->
+                                        <%= form.select :purpose, options_for_select([
+                                          ['Purpose', nil],  
+                                          ['Medical Expenses', 'Medical Expenses'],
+                                          ['Gold', 'Gold'],
+                                          ['Education', 'Education'],
+                                          ['Home', 'Home'],
+                                          ['Vehicle', 'Vehicle']
+                                        ]), {}, class: 'form-control mb-2' %>
+                                      </div>
+                            
+                                      <div class="field">
+                                        <!-- <%= form.label :'Loan Amount', class: 'form-label custom-label' %> -->
+                                        <%= form.text_field :amount, class: 'form-control mb-2', id: 'user_amount', placeholder: '$10,000', oninput: "maskincome(this)" %>
+                                      </div>
                               </div>        
                         </div>
+
                       </div>
 
+                      <div class="col-md-1"></div>
+
                       <!-- card 2 ends -->
-
-
-                      <!-- card 3  -->
-                      <div class="col-md-4">
-                    
-                          <div class="card1" style="width:25rem;">
-                            
-                            <div class="card-body">
-
-                              <h5 class="card-title"> Loan Details</h5>
-
-                              <div class="field">
-                                <%= form.label :'Loan Purpose', class: 'form-label custom-label' %>
-                                <%= form.select :purpose, options_for_select([
-                                  ['Select', nil],  
-                                  ['Medical Expenses', 'Medical Expenses'],
-                                  ['Gold', 'Gold'],
-                                  ['Education', 'Education'],
-                                  ['Home', 'Home'],
-                                  ['Vehicle', 'Vehicle']
-                                ]), {}, class: 'form-input' %>
-                            </div>
-                    
-                              <div class="field">
-                                <%= form.label :'Loan Amount', class: 'form-label custom-label' %>
-                                <%= form.text_field :amount, class: 'form-input', id: 'user_amount', placeholder: '$10,000', oninput: "maskincome(this)" %>
-                              </div>
-
-                            </div>
-                          </div>
-                      </div> 
-                      <!-- card 3 end -->
 
             </div>
 
             <br><br>
             <div class="actions text-center">
-              <%= link_to "Back", loans_path(nil), class: "btn btn-secondary mx-auto", remote: true %>
-              <%= form.submit 'Submit', class: 'btn btn-primary mx-auto' %>
+              <%= link_to "Back", loans_path(nil), class: "btn btn-secondary mx-auto all_btn", remote: true %>
+              <%= form.submit 'Submit', class: 'btn btn-primary mx-auto all_btn' %>
             </div> <br>
           
           <% end %>
@@ -217,6 +208,10 @@
               }
               input.value = value;
             }
+
+            $(document).ready(function(){
+              $('#datepicker').datepicker();
+            });
 
       </script>
 

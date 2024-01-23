@@ -3,7 +3,7 @@ class CreateLoans < ActiveRecord::Migration[7.1]
     create_table :loans do |t|
       t.string :name
       t.string :email
-      t.phone :
+      t.integer :phone
       t.string :purpose
       t.decimal :amount
       t.string :ssn
