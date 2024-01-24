@@ -33,42 +33,44 @@ class LoansController < ApplicationController
     # Create action to save data in the Loan model
 
 
-    # def create
-    #     @loan = Loan.new(loan_params)
-    #     if @loan.save
-    #         flash[:notice] = "Loan application was created successfully"
-    #         redirect_to loans_path
-    #     else
-    #        redirect_to new_loan_path, alert: @loan.errors.full_messages.join(', ')
-    #         #render 'new'
-    #     end
-    # end
-
-    def create
-      @loan = Loan.new(loan_params)
-
-      # Set user_id to the current user's ID
-      @loan.user_id = current_user.id
-
-      # debugger
-      respond_to do |format|
-        amount = get_unmasked_value(loan_params[:amount])
-        income = get_unmasked_value(loan_params[:income])
-      
-        @loan.amount = amount.to_i if amount.present?
-        @loan.income = income.to_i if income.present?
-    
-        if @loan.save
-          format.html { redirect_to loans_path, notice: "Loan application was created successfully" }
-          format.js   { puts "AJAX request succeeded!" }
-          format.json { render json: {} }
-        else
-          format.html { render action: "new" } # You might want to render the 'new' view on failure
-          format.json { render json: { errors: @loan.errors.full_messages }, status: :unprocessable_entity }
-          format.js   { render layout: false, content_type: 'text/javascript' }
-        end
+      def create
+          @loan = Loan.new(loan_params)
+          if @loan.save
+              flash[:notice] = "Loan application was created successfully"
+              redirect_to loans_path
+          else
+            redirect_to new_loan_path, alert: @loan.errors.full_messages.join(', ')
+              #render 'new'
+          end
       end
-    end
+
+   # ajax code for create 
+
+    # def create
+    #   @loan = Loan.new(loan_params)
+
+    #   # Set user_id to the current user's ID
+    #   @loan.user_id = current_user.id
+
+    #   # debugger
+    #   respond_to do |format|
+    #     amount = get_unmasked_value(loan_params[:amount])
+    #     income = get_unmasked_value(loan_params[:income])
+      
+    #     @loan.amount = amount.to_i if amount.present?
+    #     @loan.income = income.to_i if income.present?
+    
+    #     if @loan.save
+    #       format.html { redirect_to loans_path, notice: "Loan application was created successfully" }
+    #       format.js   { puts "AJAX request succeeded!" }
+    #       format.json { render json: {} }
+    #     else
+    #       format.html { render action: "new" } # You might want to render the 'new' view on failure
+    #       format.json { render json: { errors: @loan.errors.full_messages }, status: :unprocessable_entity }
+    #       format.js   { render layout: false, content_type: 'text/javascript' }
+    #     end
+    #   end
+    # end
 
     def get_unmasked_value(value)
       if value.present? && value.is_a?(String)

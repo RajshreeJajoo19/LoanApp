@@ -19,16 +19,16 @@
       <% if user_signed_in? %>
         <li class="nav-item">
           <% if current_user.user_role == 2 %>
-            <%= link_to 'Update Users', users_path, class: "btn btn-light mr-2 nav-bar-btns", id: "update_users_btn" %>
+            <%= link_to 'Update Users', users_path, class: "btn btn-outline-light mr-2 nav-bar-btns", id: "update_users_btn" %>
           <% else %>
-            <%= link_to 'Add Applications', new_loan_path, class: "btn btn-light mr-2 nav-bar-btns", id: "add_applications_btn" %>
+            <%= link_to 'Add Applications', new_loan_path, class: "btn btn-outline-light mr-2 nav-bar-btns", id: "add_applications_btn" %>
           <% end %>
           <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-outline-light mr-2 nav-bar-btns", id: "sign_out_btn" %>
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-success mr-2 nav-bar-btns", id: "sign_up_btn" %>
-          <%= link_to 'Log In', user_session_path, class: "btn btn-success mr-2 nav-bar-btns", id: "log_in_btn" %>
+          <%= link_to 'Sign Up', new_user_registration_path, class: "btn btn-outline-light mr-2 nav-bar-btns", id: "sign_up_btn" %>
+          <%= link_to 'Log In', user_session_path, class: "btn btn-outline-light mr-2 nav-bar-btns", id: "log_in_btn" %>
         </li>
       <% end %>
     </ul>

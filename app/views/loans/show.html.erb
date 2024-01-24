@@ -1,46 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Arial', sans-serif;
+    }
 
-  <body>
+    .loan-application {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin: 50px auto;
+    }
 
-    <div class="container loan-application">
-      <b class="PageTitles">Loan  Details</b> <br><br>
-    
-        <div class="row">
+    .PageTitles {
+      font-size: 24px;
+      color: #007bff;
+    }
 
-          <div class="col-md-6">
-            <p><strong>First Name:</strong> <%= @loan.name %></p>
-            <p><strong>Last Name:</strong> <%= @loan.lastName %></p>
-            <p><strong>Email:</strong> <%= @loan.email_address %></p>
-            <p><strong>SSN:</strong> <%= @loan.ssn %></p>
-            <p><strong>Phone Number:</strong> <%= @loan.phonenumber %></p>
-            <p><strong>DateOfBirth:</strong> <%= @loan.dateOfBirth %></p>
-            <p><strong>Address:</strong> <%= @loan.Address %></p>
-            <p><strong>City:</strong> <%= @loan.city %></p>
-            <p><strong>State:</strong> <%= @loan.state %></p>
-            <p><strong>Pincode:</strong> <%= @loan.pincode %></p>
-            <p><strong>Maritial Status:</strong> <%= @loan.maritalstatus %></p>
-            <p><strong>Dependents:</strong> <%= @loan.dependents %></p>
-          </div>
+    .row {
+      margin-top: 20px;
+    }
 
-          <div class="col-md-6">
-            <p><strong> Loan Purpose:</strong> <%= @loan.purpose %></p>
-            <p><strong>Amount:</strong> <%= @loan.amount %></p> 
-          </div>
+    p {
+      margin-bottom: 10px;
+    }
 
+    .loan-links {
+      margin-top: 20px;
+    }
+  </style>
+  <title>Loan Details</title>
+</head>
+<body>
 
-          <div class="col-md-6">
-            <p><strong>Profession:</strong> <%= @loan.jobtitle %></p>
-            <p><strong>Income:</strong> <%= @loan.income %></p>
-            <p><strong>Company Name:</strong> <%= @loan.companyname %></p>
-            <p><strong>Company Address:</strong> <%= @loan.companyaddress %></p>
-            <p><strong>Business Number:</strong> <%= @loan.busiessNumber %></p>
-          </div>
+  <div class="container loan-application">
+    <!-- <b class="PageTitles">Loan Details</b> <br><br> -->
+  
+    <div class="row">
 
-        </div>
+      <div class="col-md-4">
+        <p><strong>First Name:</strong> <%= @loan.name %></p>
+        <p><strong>Last Name:</strong> <%= @loan.lastName %></p>
+        <p><strong>Email:</strong> <%= @loan.email_address %></p>
+        <p><strong>SSN:</strong> <%= @loan.ssn %></p>
+        <p><strong>Phone Number:</strong> <%= @loan.phonenumber %></p>
+        <p><strong>Date of Birth:</strong> <%= @loan.dateOfBirth %></p>
+        <p><strong>Address:</strong> <%= @loan.Address %></p>
+        <p><strong>City:</strong> <%= @loan.city %></p>
+        <p><strong>State:</strong> <%= @loan.state %></p>
+        <p><strong>Pincode:</strong> <%= @loan.pincode %></p>
+        <p><strong>Marital Status:</strong> <%= @loan.maritalstatus %></p>
+        <p><strong>Dependents:</strong> <%= @loan.dependents %></p>
+      </div>
 
-        <div class="loan-links text-center">
-          <%= link_to "Back", loans_path(nil), class: "btn btn-secondary", remote: true %>
-        </div>
+      <div class="col-md-4">
+        <p><strong>Loan Purpose:</strong> <%= @loan.purpose %></p>
+        <p><strong>Amount:</strong> <%= @loan.amount %></p> 
+      </div>
+
+      <div class="col-md-4">
+        <p><strong>Profession:</strong> <%= @loan.jobtitle %></p>
+        <p><strong>Income:</strong> <%= @loan.income %></p>
+        <p><strong>Company Name:</strong> <%= @loan.companyname %></p>
+        <p><strong>Company Address:</strong> <%= @loan.companyaddress %></p>
+        <p><strong>Business Number:</strong> <%= @loan.busiessNumber %></p>
+      </div>
+
     </div>
 
-  </body>
+    <div class="loan-links text-center">
+      <%= link_to "Back", loans_path(nil), class: "btn btn-secondary mx-auto all_btn", remote: true %>
+    </div>
+  </div>
+</body>
 </html>
