@@ -32,7 +32,7 @@
 
                                   <div class="field">
                                     <!-- <%= form.label :'Email Address', class: 'form-label custom-label' %> -->
-                                    <%= form.text_field :email_address, type: 'email', class: 'form-control mb-2', id: 'email_address', placeholder: 'name@example.com' %>
+                                    <%= form.text_field :email_address, type: 'email', class: 'form-control mb-2', id: 'email_address', placeholder: 'name@example.com', oninput: "maskEmail(this)"  %>
                                   </div>
                       
                         
@@ -173,11 +173,12 @@
       </div>
 
 
+
       <script>
 
-            $(document).ready(function(){
-              $('#datepicker').datepicker();
-            });
+             document.getElementById('datepicker').addEventListener('focus', function() {
+                this.type = 'date';
+              });
 
             function maskssn(input) {
               let ssn = document.getElementById('user_ssn');
@@ -214,7 +215,6 @@
               input.value = value;
             }
 
- 
 
       </script>
 

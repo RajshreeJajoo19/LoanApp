@@ -1,7 +1,6 @@
 
-
 <div class="container">
-    <% if @loans.empty? %>
+
       <table id="loans-table" class="table table-striped table-bordered table-responsive">
         <thead>
           <tr>
@@ -46,26 +45,18 @@
             <% end %>
         </tbody>
       </table>
-    <% else %>
-      <div class="no-records">
-        <h5> <center> Oops! No records found. </center> </h5>
-        <p class="appealing-message"> <center> Looks like there are no loans to display at the moment. Don't worry, you can always add a new one! </center></p>
-      </div>
-    <% end %>
 </div>
 
 
 <script>
 
+console.log("Before DataTables initialization");
+
 $.fn.dataTable.tables({ visible: true, api: true }).state.clear();
 
 
   $(document).ready(function() {
-
-    // Clear DataTable state
-   
-       
-      $('#loans-table').DataTable({
+    $('#loans-table').DataTable({
         dom: 'Bfrtip',
         buttons: [
           {
@@ -89,6 +80,7 @@ $.fn.dataTable.tables({ visible: true, api: true }).state.clear();
       });
   });
 
+  console.log("After DataTables initialization");
 
   function confirmDelete(event) {
     if (!confirm('Are you sure you want to delete?')) {

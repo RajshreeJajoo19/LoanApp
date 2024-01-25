@@ -12,9 +12,10 @@ class LoansController < ApplicationController
       
 
     def index
-      if current_user.user_role == 1
+      # debugger
+      if current_user.applicant?
         @loans = Loan.where(user_id: current_user.id)
-      else
+      elsif current_user.admin?
         @loans = Loan.all
       end 
     end
@@ -33,16 +34,26 @@ class LoansController < ApplicationController
     # Create action to save data in the Loan model
 
 
-      def create
-          @loan = Loan.new(loan_params)
-          if @loan.save
-              flash[:notice] = "Loan application was created successfully"
-              redirect_to loans_path
-          else
-            redirect_to new_loan_path, alert: @loan.errors.full_messages.join(', ')
-              #render 'new'
-          end
-      end
+    def create
+        @loan = Loan.new(loan_params)
+
+        # Set user_id to the current user's ID
+        @loan.user_id = current_user.id
+
+        amount = get_unmasked_value(loan_params[:amount])
+        income = get_unmasked_value(loan_params[:income])
+      
+        @loan.amount = amount.to_i if amount.present?
+        @loan.income = income.to_i if income.present?
+
+        if @loan.save
+            flash[:notice] = "Loan application was created successfully"
+            redirect_to loans_path
+        else
+          redirect_to new_loan_path, alert: @loan.errors.full_messages.join(', ')
+            #render 'new'
+        end
+    end
 
    # ajax code for create 
 
