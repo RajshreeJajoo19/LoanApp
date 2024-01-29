@@ -21,7 +21,8 @@
       <% if user_signed_in? %>
         <li class="nav-item">
           <% if current_user.admin? %>
-            <%= link_to 'Update Users', users_path, class: "btn btn-outline-light mr-2 nav-bar-btns", id: "update_users_btn" %>
+            <%= link_to 'Loans', loans_path, class: "btn btn-outline-light mr-2 nav-bar-btns", id: "update_users_btn" %>
+            <%= link_to 'Update Users', users_path, class: "btn btn-outline-light mr-2 nav-bar-btns", id: "update_users_btn" %>    
           <% else %>
             <%= link_to 'Add Applications', new_loan_path, class: "btn btn-outline-light mr-2 nav-bar-btns", id: "add_applications_btn" %>
           <% end %>

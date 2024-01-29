@@ -21,6 +21,16 @@ FactoryBot.define do
         companyname { Faker::Company.name }
         companyaddress { Faker::Address.street_address }
         busiessNumber { Faker::Company.duns_number }
+
+
+        trait :admin do
+            role { 'admin' }
+        end
+      
+          trait :applicant do
+            role { 'applicant' }
+        end
+
     end
 end
   

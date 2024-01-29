@@ -11,12 +11,11 @@ Rails.application.routes.draw do
     resources :loans
   end
 
-  # Allow unauthenticated access to the home URL
   root 'pages#home'
   
-  
-  # Restrict access to all other URLs
   match '/*path', to: 'application#restrict_access', via: :all 
+
+  get '/restrict_access', to: 'application#restrict_access', as: :restrict_access
 
   resources :loans
 end
