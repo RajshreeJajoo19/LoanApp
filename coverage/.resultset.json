@@ -496,25 +496,6 @@
         "branches": {
         }
       },
-      "/home/rajshreejajoo/ROR Projects/LoanApp/app/models/ability.rb": {
-        "lines": [
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
       "/home/rajshreejajoo/ROR Projects/LoanApp/app/models/application_record.rb": {
         "lines": [
           0,
@@ -539,20 +520,8 @@
         ],
         "branches": {
         }
-      },
-      "/home/rajshreejajoo/ROR Projects/LoanApp/app/models/user_datum.rb": {
-        "lines": [
-          0,
-          null,
-          null,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
       }
     },
-    "timestamp": 1706534646
+    "timestamp": 1706552503
   }
 }
