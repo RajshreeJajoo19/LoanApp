@@ -1,10 +1,7 @@
 class User < ApplicationRecord
-  rolify
-
-  enum user_role: { admin: 2, applicant: 1 }
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :loans
-  
+  rolify
+  enum user_role: { admin: 2, applicant: 1 }
+  has_many :loans, dependent: :destroy
 end

@@ -1,6 +1,6 @@
 FactoryBot.define do
     factory :user do
-      sequence(:email) { |n| "user#{n}@example.com" }
+      sequence(:email) { |n| "user_#{n}@example.com" }
       password { 'password123' }
       user_role { 1 }
   
@@ -18,6 +18,29 @@ FactoryBot.define do
         end
       end
       
+      trait :database_authenticatable do
+        encrypted_password { Devise::Encryptor.digest(User, 'password123') }
+      end
+  
+      trait :registerable do
+        confirmed_at { Time.current }
+      end
+  
+      trait :recoverable do
+        reset_password_token { Devise.token_generator.generate(User, :reset_password_token) }
+        reset_password_sent_at { Time.current }
+      end
+  
+      trait :rememberable do
+        remember_created_at { Time.current }
+      end
+  
+      trait :validatable do
+        email { Faker::Internet.email }
+        password { 'password123' }
+      end
     end
 end
+
+
   

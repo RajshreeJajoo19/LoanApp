@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :destroy] do
     member do
-      patch 'update_role'
+    #  `` patch 'update_role'
     end
   end
 
